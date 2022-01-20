@@ -2,6 +2,7 @@ package test.jpa.services.interfaces;
 
 import java.util.List;
 
+import test.jpa.entities.Candidature;
 import test.jpa.entities.Utilisateur;
 
 public interface IUtilisateurService {
@@ -14,5 +15,7 @@ public interface IUtilisateurService {
 	void delete(Long idUtilisateur);
 	
 	List<Utilisateur> findByRole(String libelle);
+	
+	List<Candidature> findByNomFreelancer(String nomFreelancer);
 
 }

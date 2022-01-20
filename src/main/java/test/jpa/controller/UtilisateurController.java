@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import test.jpa.entities.Candidature;
 import test.jpa.entities.Utilisateur;
 import test.jpa.services.interfaces.IUtilisateurService;
 
@@ -64,5 +65,11 @@ public class UtilisateurController {
     public List<Utilisateur> findByRole(@PathVariable("libelle_role") String libelle)
     {
     	return utilisateurService.findByRole(libelle);
+    }
+    
+    @RequestMapping(value="utilisateurs/candidatures/{nomFreelancer}", method=RequestMethod.GET)
+    public List<Candidature> findByNomFreelancer(@PathVariable("nomFreelancer") String nomFreelancer)
+    {
+    	return utilisateurService.findByNomFreelancer(nomFreelancer);
     }
 }

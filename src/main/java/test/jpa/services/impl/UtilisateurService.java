@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import test.jpa.entities.Candidature;
 import test.jpa.entities.Utilisateur;
 import test.jpa.repositories.UtilisateurRepository;
 import test.jpa.services.interfaces.IUtilisateurService;
@@ -41,5 +42,9 @@ public class UtilisateurService implements IUtilisateurService{
 		return utilisateurRepository.fonction(libelle);
 	}
 
+	@Override
+	public List<Candidature> findByNomFreelancer(String nomFreelancer) {
+		return utilisateurRepository.fonction2(nomFreelancer);
+	}
 
 }
