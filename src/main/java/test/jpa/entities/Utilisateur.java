@@ -23,7 +23,7 @@ public class Utilisateur implements Serializable {
 	private Long idUtilisateur;
 	private String nomUtilisateur;
 	private String prenomUtilisateur;
-	
+	private String username;
 
 
 	@ManyToMany

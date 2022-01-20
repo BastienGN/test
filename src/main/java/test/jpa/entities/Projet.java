@@ -20,6 +20,7 @@ public class Projet implements Serializable{
 	private String description;
 	private double salaire;
 	private String statut;
+	private String username;
 	
 	@OneToMany(mappedBy="projet")
 	@Transient

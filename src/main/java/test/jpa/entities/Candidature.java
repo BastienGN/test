@@ -20,6 +20,7 @@ public class Candidature implements Serializable{
 	private String lettreMotivation;
 	private String nomFreelancer;
 	private String prenomFreelancer;
+	private String username;
 
 	@ManyToOne
 	@Transient
