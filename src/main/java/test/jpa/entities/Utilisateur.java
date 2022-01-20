@@ -13,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 
+import test.jpa.entities.Projet;
+
 @Entity
 public class Utilisateur implements Serializable {
 	@Id
@@ -22,11 +24,17 @@ public class Utilisateur implements Serializable {
 	private String prenomUtilisateur;
 
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany
 	@JoinTable(	name = "Profil",
 				joinColumns = @JoinColumn(name = "id_utilisateur", referencedColumnName = "idUtilisateur"), 
 				inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "idRole"))
 	private Set<Role> roles = new HashSet<>();
+	
+	@ManyToMany
+	@JoinTable(	name = "Projet_JobOwner", 
+				joinColumns = @JoinColumn(name = "id_jobOwner", referencedColumnName = "idUtilisateur"), 
+				inverseJoinColumns = @JoinColumn(name = "id_projet", referencedColumnName = "idProjet"))
+	private Set<Projet> projets = new HashSet<>();
 
 	public Utilisateur() {
 	}
@@ -63,12 +71,17 @@ public class Utilisateur implements Serializable {
 		this.roles = roles;
 	}
 
+	public Set<Projet> getProjets() {
+		return projets;
+	}
+
+	public void setProjets(Set<Projet> projets) {
+		this.projets = projets;
+	}
+
 	@Override
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur
 				+ ", prenomUtilisateur=" + prenomUtilisateur + "]";
 	}
-
-	
-
 }

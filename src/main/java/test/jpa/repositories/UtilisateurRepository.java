@@ -19,4 +19,5 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>
 			nativeQuery = true
 	)
 	List<Utilisateur> fonction(String Role);
+	
 }
