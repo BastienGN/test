@@ -13,5 +13,6 @@ public interface ICandidatureService {
 
 	void delete(Long idCandidature);
 	
-
+	List<Candidature> findByNomFreelancer(String nomFreelancer);
+	
 }

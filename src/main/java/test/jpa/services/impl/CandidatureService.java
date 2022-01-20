@@ -34,5 +34,10 @@ public class CandidatureService implements ICandidatureService{
 	public void delete(Long idCandidature) {
 		candidatureRepository.deleteById(idCandidature);
 	}
+
+	@Override
+	public List<Candidature> findByNomFreelancer(String nomFreelancer) {
+		return candidatureRepository.fonction2(nomFreelancer);
+	}
 	
 }

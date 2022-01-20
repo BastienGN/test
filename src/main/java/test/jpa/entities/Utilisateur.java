@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.Transient;
 
 import test.jpa.entities.Projet;
 
@@ -26,12 +27,14 @@ public class Utilisateur implements Serializable {
 
 
 	@ManyToMany
+	@Transient
 	@JoinTable(	name = "Profil",
 				joinColumns = @JoinColumn(name = "id_utilisateur", referencedColumnName = "idUtilisateur"), 
 				inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "idRole"))
 	private Set<Role> roles = new HashSet<>();
 	
 	@ManyToMany
+	@Transient
 	@JoinTable(	name = "Projet_JobOwner", 
 				joinColumns = @JoinColumn(name = "id_jobOwner", referencedColumnName = "idUtilisateur"), 
 				inverseJoinColumns = @JoinColumn(name = "id_projet", referencedColumnName = "idProjet"))

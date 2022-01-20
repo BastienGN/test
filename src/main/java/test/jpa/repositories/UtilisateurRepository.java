@@ -21,12 +21,11 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>
 	)
 	List<Utilisateur> fonction(String Role);
 	
-	final String commande2SQL="SELECT * FROM candidature WHERE nom_freelancer = ?1";
+	final String commande2SQL="SELECT * FROM candidatures WHERE nom_freelancer =?1";
 	@Query(
 			value=commande2SQL,
 			nativeQuery = true)
 	List<Candidature> fonction2(String nomFreelancer);
-
 	
 	
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import test.jpa.entities.Candidature;
 import test.jpa.entities.Utilisateur;
+import test.jpa.repositories.CandidatureRepository;
 import test.jpa.repositories.UtilisateurRepository;
 import test.jpa.services.interfaces.IUtilisateurService;
 
@@ -15,7 +16,7 @@ public class UtilisateurService implements IUtilisateurService{
 	
 	@Autowired
 	UtilisateurRepository utilisateurRepository;
-
+	
 	@Override
 	public List<Utilisateur> findAll() {
 		return utilisateurRepository.findAll();
