@@ -64,7 +64,7 @@ public class UtilisateurController {
         utilisateurService.delete(idUtilisateur);
     }
     
-    @RequestMapping(value="utilisateurs/{libelle_role}", method=RequestMethod.GET)
+    @RequestMapping(value="util/{libelle_role}", method=RequestMethod.GET)
     public List<Utilisateur> findByRole(@PathVariable("libelle_role") String libelle)
     {
     	return utilisateurService.findByRole(libelle);

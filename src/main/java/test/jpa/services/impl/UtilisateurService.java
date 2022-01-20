@@ -38,7 +38,7 @@ public class UtilisateurService implements IUtilisateurService{
 	@Override
 	public List<Utilisateur> findByRole(String libelle) {
 		
-		return utilisateurRepository.findByRole(libelle);
+		return utilisateurRepository.fonction(libelle);
 	}
 
 
