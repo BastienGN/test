@@ -21,11 +21,12 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>
 	)
 	List<Utilisateur> fonction(String Role);
 	
-	final String commande2SQL="SELECT * FROM candidatures WHERE nom_freelancer =?1";
+	final String commande2SQL="SELECT * FROM utilisateur WHERE username IN "
+			+ "(SELECT username FROM candidatures WHERE projet_id_projet =?1)";
 	@Query(
 			value=commande2SQL,
 			nativeQuery = true)
-	List<Candidature> fonction2(String nomFreelancer);
+	List<Utilisateur> fonction2(Long projet_id_projet);
 	
 	
 }

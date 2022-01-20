@@ -68,10 +68,10 @@ public class UtilisateurController {
     	return utilisateurService.findByRole(libelle);
     }
     
-    @RequestMapping(value="cands/{nomFreelancer}", method=RequestMethod.GET)
-    public List<Candidature> findByNomFreelancer(@PathVariable("nomFreelancer") String nomFreelancer)
+    @RequestMapping(value="projs/{idP}", method=RequestMethod.GET)
+    public List<Utilisateur> findByProjet(@PathVariable("idP") Long projet_id_projet)
     {
-    	return utilisateurService.findByNomFreelancer(nomFreelancer);
+    	return utilisateurService.findByProjet(projet_id_projet);
     }
 	
 }

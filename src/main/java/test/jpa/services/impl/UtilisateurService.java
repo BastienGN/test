@@ -44,8 +44,10 @@ public class UtilisateurService implements IUtilisateurService{
 	}
 
 	@Override
-	public List<Candidature> findByNomFreelancer(String nomFreelancer) {
-		return utilisateurRepository.fonction2(nomFreelancer);
+	public List<Utilisateur> findByProjet(Long projet_id_projet) {
+		return utilisateurRepository.fonction2(projet_id_projet);
 	}
+
+	
 
 }
