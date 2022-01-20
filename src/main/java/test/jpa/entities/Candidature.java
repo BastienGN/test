@@ -15,16 +15,13 @@ public class Candidature implements Serializable{
 	private Long idCandidature;
 	private String statut;
 	private String lettreMotivation;
+	private String nomFreelancer;
+	private String prenomFreelancer;
 
 	@ManyToOne
 	private Projet projet;
 	
 	public Candidature() {
-	}
-
-	public Candidature(Long idCandidature, String statut, String lettreMotivation) {
-		this.statut = statut;
-		this.lettreMotivation = lettreMotivation;
 	}
 
 	public Long getIdCandidature() {
@@ -59,10 +56,22 @@ public class Candidature implements Serializable{
 		this.projet = projet;
 	}
 
-	@Override
-	public String toString() {
-		return "Candidature [idCandidature=" + idCandidature + ", statut=" + statut + ", lettreMotivation="
-				+ lettreMotivation + "]";
+	public String getNomFreelancer() {
+		return nomFreelancer;
 	}
+
+	public void setNomFreelancer(String nomFreelancer) {
+		this.nomFreelancer = nomFreelancer;
+	}
+
+	public String getPrenomFreelancer() {
+		return prenomFreelancer;
+	}
+
+	public void setPrenomFreelancer(String prenomFreelancer) {
+		this.prenomFreelancer = prenomFreelancer;
+	}
+
+	
 	
 }
