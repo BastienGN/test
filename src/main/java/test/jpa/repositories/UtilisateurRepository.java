@@ -12,6 +12,7 @@ import test.jpa.entities.Utilisateur;
 @Repository
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>
 {
+	//Tous les utilisateurs par role
 	final String commandeSQL="SELECT * FROM utilisateur WHERE id_utilisateur IN "
 			+ "	(SELECT id_utilisateur FROM profil WHERE id_role IN"
 			+ "(SELECT id_role FROM role WHERE libelle =?1 ))";
@@ -21,12 +22,12 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long>
 	)
 	List<Utilisateur> fonction(String Role);
 	
+	//Tous les utilisateurs à partir d'un projet
 	final String commande2SQL="SELECT * FROM utilisateur WHERE username IN "
 			+ "(SELECT username FROM candidatures WHERE projet_id_projet =?1)";
 	@Query(
 			value=commande2SQL,
 			nativeQuery = true)
 	List<Utilisateur> fonction2(Long projet_id_projet);
-	
 	
 }
