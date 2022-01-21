@@ -10,6 +10,8 @@ import test.jpa.entities.Candidature;
 
 @Repository
 public interface CandidatureRepository extends JpaRepository<Candidature, Long> {
+	
+	//Trouver toutes les candidatures à partir d'un nom de freelancer
 	final String commande2SQL="SELECT * FROM candidatures WHERE nom_freelancer =?1";
 	@Query(
 			value=commande2SQL,

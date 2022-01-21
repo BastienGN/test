@@ -68,10 +68,40 @@ public class UtilisateurController {
     	return utilisateurService.findByRole(libelle);
     }
     
-    @RequestMapping(value="projs/{idP}", method=RequestMethod.GET)
-    public List<Utilisateur> findByProjet(@PathVariable("idP") Long projet_id_projet)
+    @RequestMapping(value="utilisateurscandidature/{idU}", method=RequestMethod.GET)
+    public List<Utilisateur> findUtilisateursByCandidature(@PathVariable("idU") Long id_candidature)
     {
-    	return utilisateurService.findByProjet(projet_id_projet);
+    	return utilisateurService.findUtilisateursByCandidature(id_candidature);
+    }
+    
+    @RequestMapping(value="freelancersprojets/{idF}", method=RequestMethod.GET)
+    public List<Utilisateur> findFreelancerByProjet(@PathVariable("idF") Long projet_id_projet)
+    {
+    	return utilisateurService.findFreelancerByProjet(projet_id_projet);
+    }
+    
+    @RequestMapping(value="moyennefreelancer/{idF}", method=RequestMethod.GET)
+    public Double findMoyenneByFreelancer(@PathVariable("idF") String libelle)
+    {
+    	return utilisateurService.findMoyenneByFreelancer(libelle);
+    }
+    
+    @RequestMapping(value="moyennejobowner/{idJ}", method=RequestMethod.GET)
+    public Double findMoyenneByJobOwner(@PathVariable("idJ") String libelle)
+    {
+    	return utilisateurService.findMoyenneByJobOwner(libelle);
+    }
+    
+    @RequestMapping(value="nombrefreelancer/{idF}", method=RequestMethod.GET)
+    public Double nombreFreelancer(@PathVariable("idF") String libelle)
+    {
+    	return utilisateurService.findMoyenneByFreelancer(libelle);
+    }
+    
+    @RequestMapping(value="nombrejobowner/{idJ}", method=RequestMethod.GET)
+    public Double nombreJobOwner(@PathVariable("idJ") String libelle)
+    {
+    	return utilisateurService.findMoyenneByJobOwner(libelle);
     }
 	
 }
